@@ -13,8 +13,8 @@ function page() {
                   Join Gymate today to kick-start your personalized fitness journey. Our expert trainers will guide you every step of the way towards achieving your goals!
                 </p>
                 <div>
-                  <h1 className="text-white">Mumbai Maharashtra</h1>
-                  <p className="text-[#D1D1D1]">85 Briston Mint Street, Mumbai, E1 8LG, Maharashtra</p>
+                  <h1 className="text-white">Dhaka,Rampura</h1>
+                  <p className="text-[#D1D1D1]">85 Briston Mint Street, Rampura, E1 8LG</p>
                 </div>
               </div>
             </div>

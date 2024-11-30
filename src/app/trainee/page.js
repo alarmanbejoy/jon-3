@@ -10,14 +10,14 @@ function TraineeDashboard() {
       title: "Morning Yoga",
       date: "2024-12-05",
       time: "7:00 AM - 8:00 AM",
-      trainer: "Alex Johnson",
+      trainer: "arman",
     },
     {
       id: 2,
       title: "Strength Training",
       date: "2024-12-06",
       time: "5:00 PM - 6:00 PM",
-      trainer: "Emily Davis",
+      trainer: "bejoy",
     },
   ]);
 
