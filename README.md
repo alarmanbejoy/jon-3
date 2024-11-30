@@ -1,34 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+Gym Management System Frontend:
+This is the frontend for a Gym Management System, built with Next.js, Tailwind CSS, and React. It is a responsive, modern web application that allows users to interact with the gym, view classes, schedule sessions, and manage memberships.
 
-First, run the development server:
+Features:
+Responsive Design: The application is mobile-first and looks great on all devices.
 
-```bash
+Gym Classes: Users can view and register for gym classes.
+
+Schedule: Detailed schedule for each class available.
+
+Admin Dashboard: Admins can manage the system, including class schedules and memberships.
+
+Trainee Dashboard: Trainees can view their assigned classes and track their progress.
+
+Authentication: Basic login functionality (JWT-based).
+
+Social Media Integration: Includes links to Facebook, Instagram, and YouTube.
+
+Tech Stack:
+Next.js: React framework for building the frontend.
+Tailwind CSS: Utility-first CSS framework for styling.
+React: JavaScript library for building user interfaces.
+React Icons: Used for adding icons to the UI.
+JWT Authentication: For handling user login.
+Prerequisites
+To run this project locally, you need to have the following tools installed:
+
+Node.js (preferably the latest LTS version)
+npm (or Yarn)
+Git
+
+Installation:
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser and visit:
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Folder Structure
+pages/: Contains the main page components and routes.
 
-## Learn More
+index.js: Home page.
+about.js: About page.
+pricing.js: Pricing page.
+schedule.js: Class schedule page.
+admin.js: Admin dashboard.
+trainee.js: Trainee dashboard.
+login.js: Login page.
+components/: Reusable components.
 
-To learn more about Next.js, take a look at the following resources:
+Navbar.js: The main navigation bar.
+Footer.js: Footer section of the website.
+Banner.js: The hero banner with call-to-action button.
+Mainbutton.js: A reusable button component.
+public/: Static assets like images, fonts, etc.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+images/: Image files, including the banner image.
+styles/: Tailwind CSS configurations and other global styles.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contributing
+Contributions are always welcome! If you want to improve this project, feel free to fork the repository and create a pull request.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Acknowledgments
+Next.js: The React framework used for building this app.
+Tailwind CSS: For styling the app with utility classes.
+React Icons: For beautiful and customizable icons.
+FontAwesome: For some additional icons.

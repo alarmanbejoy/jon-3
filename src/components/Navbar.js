@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from 'next/navigation';
-
 import { FiPlusSquare } from "react-icons/fi";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { GiWeightLiftingUp } from "react-icons/gi";
@@ -18,44 +17,74 @@ export default function Navbar() {
 
   return (
     <div className="z-50 min-h-[81px] fixed top-0 flex justify-between items-center px-5 py-4 w-full bg-black text-white">
+      {/* Logo Section */}
       <div>
-      <h3 className="flex gap-2 font-bold text-2xl text-red-500 items-center justify-center">
-  fi<span className="text-white">T</span>bd <GiWeightLiftingUp />
-</h3>
+        <h3 className="flex gap-2 font-bold text-2xl text-red-500 items-center justify-center">
+          fi<span className="text-white">T</span>bd <GiWeightLiftingUp />
+        </h3>
       </div>
+
+      {/* Desktop Navigation Links */}
       <div>
         <ul className="flex gap-5 navlink">
-          <Link className={currentRoute === "/" ? current : "hover:font-bold hover:text-red-500"} href={"/"}>
+          <Link
+            className={currentRoute === "/" ? current : "hover:font-bold hover:text-red-500"}
+            href={"/"}
+          >
             Home
           </Link>
-          <Link className={currentRoute === "/about" ? current : "hover:font-bold hover:text-red-500"} href={"/about"}>
+          <Link
+            className={currentRoute === "/about" ? current : "hover:font-bold hover:text-red-500"}
+            href={"/about"}
+          >
             About
           </Link>
-          <Link className={currentRoute === "/pricing" ? current : "hover:font-bold hover:text-red-500"} href={"/pricing"}>
+          <Link
+            className={currentRoute === "/pricing" ? current : "hover:font-bold hover:text-red-500"}
+            href={"/pricing"}
+          >
             Pricing
           </Link>
-          <Link className={currentRoute === "/schedule" ? current : "hover:font-bold hover:text-red-500"} href={"/schedule"}>
+          <Link
+            className={currentRoute === "/schedule" ? current : "hover:font-bold hover:text-red-500"}
+            href={"/schedule"}
+          >
             Schedule
           </Link>
-          <Link className={currentRoute === "/contact" ? current : "hover:font-bold hover:text-red-500"} href={"/contact"}>
+          <Link
+            className={currentRoute === "/contact" ? current : "hover:font-bold hover:text-red-500"}
+            href={"/contact"}
+          >
             Contact
           </Link>
-          {/* Added new routes */}
-          <Link className={currentRoute === "/admin" ? current : "hover:font-bold hover:text-red-500"} href={"/admin"}>
+          <Link
+            className={currentRoute === "/admin" ? current : "hover:font-bold hover:text-red-500"}
+            href={"/admin"}
+          >
             Admin
           </Link>
-          <Link className={currentRoute === "/trainee" ? current : "hover:font-bold hover:text-red-500"} href={"/trainee"}>
+          <Link
+            className={currentRoute === "/trainee" ? current : "hover:font-bold hover:text-red-500"}
+            href={"/trainee"}
+          >
             Trainee
           </Link>
-          <Link className={currentRoute === "/registration" ? current : "hover:font-bold hover:text-red-500"} href={"/registration"}>
+          <Link
+            className={currentRoute === "/registration" ? current : "hover:font-bold hover:text-red-500"}
+            href={"/registration"}
+          >
             Registration
           </Link>
-          <Link className={currentRoute === "/login" ? current : "hover:font-bold hover:text-red-500"} href={"/login"}>
+          <Link
+            className={currentRoute === "/login" ? current : "hover:font-bold hover:text-red-500"}
+            href={"/login"}
+          >
             Login
           </Link>
         </ul>
       </div>
 
+      {/* Join Class Button */}
       <div className="join-btn">
         <Link
           href={"/contact"}
@@ -66,6 +95,7 @@ export default function Navbar() {
         </Link>
       </div>
 
+      {/* Hamburger Icon for Mobile */}
       <HiOutlineMenuAlt1
         className="hamburger text-3xl cursor-pointer"
         onClick={hamburgerClick}
@@ -116,7 +146,6 @@ export default function Navbar() {
             >
               Contact
             </Link>
-            {/* Added new routes for mobile menu */}
             <Link
               className="hover:font-bold hover:text-red-500"
               href={"/admin"}
