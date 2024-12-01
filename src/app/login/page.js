@@ -1,21 +1,29 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link"; // Import Link from next/link
+import Link from "next/link";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (email && password) {
-      router.push("/"); // Redirect to the home page on successful login
-    } else {
-      setErrorMessage("Please enter both email and password.");
-    }
+    setLoading(true);
+    setErrorMessage(""); // Clear previous error message
+
+    // Simulate an API call for login validation
+    setTimeout(() => {
+      if (email === "test@example.com" && password === "password123") {
+        router.push("/dashboard"); // Redirect to dashboard if credentials are correct
+      } else {
+        setErrorMessage("Invalid email or password. Please try again.");
+      }
+      setLoading(false);
+    }, 1000); // Simulating network delay
   };
 
   return (
@@ -25,7 +33,7 @@ function LoginPage() {
         <div className="absolute w-32 h-32 bg-yellow-200 rounded-full bottom-[-40px] right-[-40px] opacity-50 animate-bounce"></div>
 
         <h2 className="text-4xl font-extrabold text-center text-gray-800">
-          Welcome to FitLife Gym!
+          Welcome to Fitbd Gym!
         </h2>
         <p className="text-center text-gray-500 mt-2">
           Log in to access your personalized fitness dashboard.
@@ -83,9 +91,16 @@ function LoginPage() {
 
           <button
             type="submit"
-            className="w-full py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg hover:from-red-500 hover:to-orange-500 transition-all duration-300 shadow-lg transform hover:scale-105"
+            className={`w-full py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg hover:from-red-500 hover:to-orange-500 transition-all duration-300 shadow-lg transform hover:scale-105 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={loading}
           >
-            Log In
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <div className="animate-spin w-6 h-6 border-4 border-t-4 border-orange-500 rounded-full"></div>
+              </div>
+            ) : (
+              "Log In"
+            )}
           </button>
         </form>
       </div>

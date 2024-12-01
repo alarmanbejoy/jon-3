@@ -9,6 +9,8 @@ function RegistrationPage() {
     password: "",
   });
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const router = useRouter();
 
   // Handle form change
@@ -23,10 +25,20 @@ function RegistrationPage() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    // Simple validation
+    if (!formData.email.includes("@") || formData.password.length < 6) {
+      setError("Please enter a valid email and a password with at least 6 characters.");
+      setLoading(false);
+      return;
+    }
 
     // Mock API call for registration
     setTimeout(() => {
       setMessage("Registration successful! Please log in.");
+      setFormData({ name: "", email: "", password: "" }); // Clear the form fields
       setTimeout(() => {
         router.push("/login"); // Redirect to the login page after 2 seconds
       }, 2000);
@@ -40,17 +52,14 @@ function RegistrationPage() {
           <div className="absolute w-40 h-40 bg-orange-200 rounded-full top-[-60px] left-[-60px] opacity-50 animate-pulse"></div>
           <div className="absolute w-32 h-32 bg-yellow-200 rounded-full bottom-[-40px] right-[-40px] opacity-50 animate-bounce"></div>
 
-          <h2 className="text-4xl font-extrabold text-center text-gray-800">
-            Register Now
-          </h2>
+          <h2 className="text-4xl font-extrabold text-center text-gray-800">Register Now</h2>
           <p className="text-center text-gray-500 mt-2">
             Join Gymate today and take the first step toward your fitness journey.
             Complete your registration to get started with personalized training plans.
           </p>
 
-          {message && (
-            <p className="text-green-500 text-lg font-semibold mt-4">{message}</p>
-          )}
+          {message && <p className="text-green-500 text-lg font-semibold mt-4">{message}</p>}
+          {error && <p className="text-red-500 text-lg font-semibold mt-4">{error}</p>}
 
           <form className="flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
             <input
@@ -61,6 +70,7 @@ function RegistrationPage() {
               required
               placeholder="Full Name *"
               className="p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none transition duration-300"
+              aria-label="Full Name"
             />
             <input
               type="email"
@@ -70,6 +80,7 @@ function RegistrationPage() {
               required
               placeholder="Email Address *"
               className="p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none transition duration-300"
+              aria-label="Email Address"
             />
             <input
               type="password"
@@ -79,13 +90,15 @@ function RegistrationPage() {
               required
               placeholder="Password *"
               className="p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none transition duration-300"
+              aria-label="Password"
             />
 
             <button
               type="submit"
-              className="w-full py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg hover:from-red-500 hover:to-orange-500 transition-all duration-300 shadow-lg transform hover:scale-105"
+              className={`w-full py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg hover:from-red-500 hover:to-orange-500 transition-all duration-300 shadow-lg transform hover:scale-105 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={loading}
             >
-              Register Now
+              {loading ? "Registering..." : "Register Now"}
             </button>
           </form>
 
